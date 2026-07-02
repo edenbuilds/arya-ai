@@ -1,12 +1,12 @@
 {
   "manifest_version": "0.4",
-  "name": "vakilpro",
-  "display_name": "VakilPro - Indian Law Assistant",
+  "name": "desiharveyspecter",
+  "display_name": "DesiHarveySpecter - Indian Law Assistant",
   "version": "1.0.0",
   "description": "Local-first Indian-law MCPB extension for lawyers. Includes specialist agents, commands, protocol search, legal drafting templates, and NCLT/NCLAT/IBC drafting workflows.",
-  "long_description": "VakilPro combines Indian legal research, drafting, litigation strategy, company-law pleadings, limitation checks, RTI/writ/PIL support, contract/criminal/labour/property/IP analysis, and local document export helpers. It is designed to run as a prompt-pack in Claude Code, Codex, Cursor, Gemini CLI, and as a local MCP server wherever MCP is supported.",
+  "long_description": "DesiHarveySpecter combines Indian legal research, drafting, litigation strategy, company-law pleadings, limitation checks, RTI/writ/PIL support, contract/criminal/labour/property/IP analysis, and local document export helpers. It is designed to run as a prompt-pack in Claude Code, Codex, Cursor, Gemini CLI, and as a local MCP server wherever MCP is supported.",
   "author": {
-    "name": "VakilPro"
+    "name": "DesiHarveySpecter"
   },
   "license": "MIT",
   "keywords": [

@@ -1,12 +1,12 @@
 {
-  "name": "vakilpro",
+  "name": "desiharveyspecter",
   "version": "1.0.0",
   "description": "Comprehensive Indian-law assistant for lawyers: research, drafting, litigation strategy, NCLT/NCLAT/IBC pleadings, templates, protocol search, and local document tooling.",
   "author": {
-    "name": "VakilPro"
+    "name": "DesiHarveySpecter"
   },
-  "homepage": "https://github.com/omkarkamath/vakilpro",
-  "repository": "https://github.com/omkarkamath/vakilpro",
+  "homepage": "https://github.com/edenbuilds/DesiHarveySpecter",
+  "repository": "https://github.com/edenbuilds/DesiHarveySpecter",
   "license": "MIT",
   "keywords": [
     "india",
@@ -22,10 +22,10 @@
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
-    "displayName": "VakilPro",
+    "displayName": "DesiHarveySpecter",
     "shortDescription": "Indian-law research, drafting, and NCLT workflows.",
-    "longDescription": "VakilPro combines Indian-law specialist agents, command prompts, protocol references, legal drafting templates, and a local MCP server for Indian lawyers. It covers contract, criminal, civil procedure, corporate, NCLT/NCLAT, IBC, labour, property, IP, consumer, RTI, PIL, writs, ADR, and document workflows.",
-    "developerName": "VakilPro",
+    "longDescription": "DesiHarveySpecter combines Indian-law specialist agents, command prompts, protocol references, legal drafting templates, and a local MCP server for Indian lawyers. It covers contract, criminal, civil procedure, corporate, NCLT/NCLAT, IBC, labour, property, IP, consumer, RTI, PIL, writs, ADR, and document workflows.",
+    "developerName": "DesiHarveySpecter",
     "category": "Productivity",
     "capabilities": [
       "Research",

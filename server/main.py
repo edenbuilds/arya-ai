@@ -1,4 +1,4 @@
-"""VakilPro — Indian legal research and drafting MCP server.
+"""DesiHarveySpecter — Indian legal research and drafting MCP server.
 
 Local-first tools for Indian lawyers: protocol search, prompt retrieval,
 drafting templates, and company-law/NCLT/NCLAT/IBC drafting workflows.
@@ -14,7 +14,7 @@ from pathlib import Path
 from mcp.server.fastmcp import FastMCP
 from mcp.types import ToolAnnotations
 
-DEFAULT_DRAFTS_ROOT = Path.home() / "Downloads" / "VakilPro-Drafts"
+DEFAULT_DRAFTS_ROOT = Path.home() / "Downloads" / "DesiHarveySpecter-Drafts"
 ALLOWED_ARTIFACT_NAMES = {
     "case-facts.md",
     "format-shell.md",
@@ -27,7 +27,7 @@ ALLOWED_ARTIFACT_NAMES = {
     "final-draft.md",
 }
 
-mcp = FastMCP("vakilpro")
+mcp = FastMCP("desiharveyspecter")
 
 BUNDLE_ROOT = Path(__file__).resolve().parent.parent
 SKILLS_DIR = BUNDLE_ROOT / "skills"
@@ -99,12 +99,12 @@ def _first_heading_or_line(path: Path) -> str:
     return path.stem.replace("-", " ").title()
 
 
-@mcp.tool(annotations=ToolAnnotations(title="List VakilPro Capabilities", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
-def list_vakilpro_capabilities() -> dict:
-    """Return a high-level inventory of bundled VakilPro assets."""
+@mcp.tool(annotations=ToolAnnotations(title="List DesiHarveySpecter Capabilities", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
+def list_desiharveyspecter_capabilities() -> dict:
+    """Return a high-level inventory of bundled DesiHarveySpecter assets."""
     skill_count = len(list(SKILLS_DIR.glob("*/SKILL.md")))
     return {
-        "name": "VakilPro",
+        "name": "DesiHarveySpecter",
         "summary": "Indian legal assistant for research, drafting, litigation strategy, NCLT/NCLAT/IBC pleadings, and local document workflows.",
         "counts": {
             "specialist_agents": len(list(AGENTS_DIR.glob("*.md"))),
@@ -129,7 +129,7 @@ def list_vakilpro_capabilities() -> dict:
             "ADR",
             "PDF/document workflows",
         ],
-        "start_here": "Use skills/vakilpro-orchestrator/SKILL.md or call search_protocols(), list_commands(), list_specialist_agents(), and list_case_types().",
+        "start_here": "Use skills/desiharveyspecter-orchestrator/SKILL.md or call search_protocols(), list_commands(), list_specialist_agents(), and list_case_types().",
     }
 
 
@@ -143,7 +143,7 @@ def list_legal_domains() -> dict:
     return {"domains": domains}
 
 
-@mcp.tool(annotations=ToolAnnotations(title="List VakilPro Commands", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
+@mcp.tool(annotations=ToolAnnotations(title="List DesiHarveySpecter Commands", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
 def list_commands() -> dict:
     """List command prompts available in the command pack."""
     commands = []
@@ -164,7 +164,7 @@ def get_command_prompt(command_name: str) -> dict:
 
 @mcp.tool(annotations=ToolAnnotations(title="List Specialist Agents", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
 def list_specialist_agents() -> dict:
-    """List legal specialist personas bundled with VakilPro."""
+    """List legal specialist personas bundled with DesiHarveySpecter."""
     agents = []
     for path in sorted(AGENTS_DIR.glob("*.md")):
         agents.append({"name": path.stem, "path": path.relative_to(BUNDLE_ROOT).as_posix(), "title": _first_heading_or_line(path)})
@@ -244,7 +244,7 @@ def get_drafting_template(template_name: str) -> dict:
     return {"name": name, "path": path.relative_to(BUNDLE_ROOT).as_posix(), "content": _read_text_file(path)}
 
 
-FULL_ORCHESTRATION_SCRIPT = """# VakilPro — INDIAN COMPANY-LAW FORUMS (NCLT / NCLAT / HIGH COURT COMPANY BENCH) DRAFTING · FULL ORCHESTRATION SCRIPT
+FULL_ORCHESTRATION_SCRIPT = """# DesiHarveySpecter — INDIAN COMPANY-LAW FORUMS (NCLT / NCLAT / HIGH COURT COMPANY BENCH) DRAFTING · FULL ORCHESTRATION SCRIPT
 
 **YOU MUST execute every step below in order. DO NOT skip steps. DO NOT write
 standalone python-docx, JavaScript, or shell scripts to generate output —
@@ -534,7 +534,7 @@ def _sanitise_path_component(value: str) -> str:
 def create_case_folder(case_type: str, base_dir: str = "") -> dict:
     """Create the case folder for a drafting session on the user's machine.
 
-    Creates a timestamped folder under ~/Downloads/VakilPro-Drafts/ (or the
+    Creates a timestamped folder under ~/Downloads/DesiHarveySpecter-Drafts/ (or the
     base_dir if supplied) named <case-type>-<YYYYMMDD-HHMMSS>/, with an inputs/
     subfolder for source documents. Cross-platform (macOS / Windows / Linux).
     """
@@ -549,7 +549,7 @@ def create_case_folder(case_type: str, base_dir: str = "") -> dict:
     inputs_folder.mkdir(parents=True, exist_ok=True)
     readme = case_folder / "README.md"
     readme.write_text(
-        f"# VakilPro Drafting Case Folder\n\n"
+        f"# DesiHarveySpecter Drafting Case Folder\n\n"
         f"- Case type: {case_type}\n"
         f"- Created: {datetime.now().isoformat(timespec='seconds')}\n\n"
         f"## Artifacts (pipeline output)\n"

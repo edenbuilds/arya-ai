@@ -1,10 +1,10 @@
 [project]
-name = "vakilpro"
+name = "desiharveyspecter"
 version = "1.0.0"
 description = "Universal Indian-law MCP server and prompt-pack plugin."
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "VakilPro" }]
+authors = [{ name = "DesiHarveySpecter" }]
 dependencies = ["mcp[cli]>=1.0.0"]
 
 [build-system]

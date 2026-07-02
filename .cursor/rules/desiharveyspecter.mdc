@@ -1,0 +1,10 @@
+---
+description: DesiHarveySpecter Indian-law routing, drafting, and verification rules
+alwaysApply: false
+---
+
+# DesiHarveySpecter
+
+For Indian-law work, read `skills/desiharveyspecter-orchestrator/SKILL.md` first. Use `agents/`, `commands/`, `skills/`, and `protocols/` as the local knowledge pack.
+
+Do not invent citations, statutes, facts, or court requirements. Flag uncertain points for verification. Treat client material as confidential.

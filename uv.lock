@@ -965,7 +965,7 @@ wheels = [
 ]
 
 [[package]]
-name = "vakilpro"
+name = "desiharveyspecter"
 version = "1.0.0"
 source = { editable = "." }
 dependencies = [

@@ -1,6 +1,6 @@
-# VakilPro Agent Instructions
+# DesiHarveySpecter Agent Instructions
 
-Use `skills/vakilpro-orchestrator/SKILL.md` as the primary routing and safety policy for all Indian-law work.
+Use `skills/desiharveyspecter-orchestrator/SKILL.md` as the primary routing and safety policy for all Indian-law work.
 
 ## Repository Map
 
