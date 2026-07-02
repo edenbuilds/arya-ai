@@ -1,6 +1,6 @@
-# DesiHarveySpecter Agent Instructions
+# arya-ai Agent Instructions
 
-Use `skills/desiharveyspecter-orchestrator/SKILL.md` as the primary routing and safety policy for all Indian-law work.
+Use `skills/arya-ai-orchestrator/SKILL.md` as the primary routing and safety policy for all Indian-law work.
 
 ## Repository Map
 

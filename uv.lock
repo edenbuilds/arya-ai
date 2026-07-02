@@ -965,7 +965,7 @@ wheels = [
 ]
 
 [[package]]
-name = "desiharveyspecter"
+name = "arya-ai"
 version = "1.0.0"
 source = { editable = "." }
 dependencies = [

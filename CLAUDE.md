@@ -1,6 +1,6 @@
-# DesiHarveySpecter for Claude and Claude Code
+# arya-ai for Claude and Claude Code
 
-Load this repository as a prompt/plugin directory. Start with `skills/desiharveyspecter-orchestrator/SKILL.md` for routing and safety rules.
+Load this repository as a prompt/plugin directory. Start with `skills/arya-ai-orchestrator/SKILL.md` for routing and safety rules.
 
 For Claude Desktop MCP use, add the local server config from `.mcp.json` or install the MCPB manifest in `manifest.json`.
 

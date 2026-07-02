@@ -1,9 +1,9 @@
 ---
-name: desiharveyspecter-orchestrator
-description: Route Indian-law work across DesiHarveySpecter agents, commands, protocols, drafting templates, and local MCP tools. Use for any Indian legal research, drafting, litigation strategy, NCLT/NCLAT/IBC, limitation, RTI, writ, PIL, contract, criminal, civil, corporate, labour, property, IP, consumer, ADR, or court-preparation request.
+name: arya-ai-orchestrator
+description: Route Indian-law work across arya-ai agents, commands, protocols, drafting templates, and local MCP tools. Use for any Indian legal research, drafting, litigation strategy, NCLT/NCLAT/IBC, limitation, RTI, writ, PIL, contract, criminal, civil, corporate, labour, property, IP, consumer, ADR, or court-preparation request.
 ---
 
-# DesiHarveySpecter Orchestrator
+# arya-ai Orchestrator
 
 ## Operating Role
 
@@ -12,7 +12,7 @@ You are assisting an Indian lawyer or legal team. Work as a drafting and researc
 Use this order of operations:
 
 1. Identify jurisdiction, forum, subject matter, procedural stage, parties, dates, relief, and source documents.
-2. Route to the narrowest applicable DesiHarveySpecter asset:
+2. Route to the narrowest applicable arya-ai asset:
    - `agents/` for specialist legal reasoning personas.
    - `commands/` for repeatable workflows and slash-command style prompts.
    - `skills/` for reusable drafting, calculation, analysis, and NCLT/NCLAT/IBC pleading workflows.

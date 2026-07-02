@@ -1,12 +1,12 @@
-# DesiHarveySpecter
+# arya-ai
 
-DesiHarveySpecter is a comprehensive Indian-law plugin and local MCP server for lawyers. It combines specialist legal agents, reusable drafting skills, command prompts, protocol references, NCLT/NCLAT/IBC drafting workflows, legal templates, and local document tools into one portable repository.
+arya-ai is a comprehensive Indian-law plugin and local MCP server for lawyers. It combines specialist legal agents, reusable drafting skills, command prompts, protocol references, NCLT/NCLAT/IBC drafting workflows, legal templates, and local document tools into one portable repository.
 
 It is designed to work across Claude, Claude Code, ChatGPT/Codex, Gemini, Cursor, and any MCP-compatible assistant.
 
 ## What It Does
 
-DesiHarveySpecter helps with:
+arya-ai helps with:
 
 - Indian legal research and issue spotting.
 - Legal notices, civil suits, criminal complaints, affidavits, opinions, RTI applications, writ/PIL workflows, and contract review.
@@ -46,7 +46,7 @@ DesiHarveySpecter helps with:
 All platforms should start with:
 
 ```text
-Read skills/desiharveyspecter-orchestrator/SKILL.md first and follow it for routing, legal safety, drafting, and verification.
+Read skills/arya-ai-orchestrator/SKILL.md first and follow it for routing, legal safety, drafting, and verification.
 ```
 
 Core rules:
@@ -70,7 +70,7 @@ This repo includes a Codex plugin manifest:
 
 Use the repo as a local plugin folder or copy it into your plugin marketplace/workspace. The key entry points are:
 
-- `skills/desiharveyspecter-orchestrator/SKILL.md`
+- `skills/arya-ai-orchestrator/SKILL.md`
 - `.mcp.json`
 - `server/main.py`
 
@@ -79,7 +79,7 @@ Use the repo as a local plugin folder or copy it into your plugin marketplace/wo
 Use the repository as a Claude Code plugin/prompt directory:
 
 ```bash
-claude --plugin-dir /path/to/DesiHarveySpecter
+claude --plugin-dir /path/to/arya-ai
 ```
 
 Claude-specific metadata is in:
@@ -96,9 +96,9 @@ Install as an MCPB-style local extension using `manifest.json`, or add this serv
 ```json
 {
   "mcpServers": {
-    "desiharveyspecter": {
+    "arya-ai": {
       "command": "uv",
-      "args": ["--directory", "/absolute/path/to/DesiHarveySpecter", "run", "server/main.py"]
+      "args": ["--directory", "/absolute/path/to/arya-ai", "run", "server/main.py"]
     }
   }
 }
@@ -116,10 +116,10 @@ Requirements:
 Cursor rules are in:
 
 ```text
-.cursor/rules/desiharveyspecter.mdc
+.cursor/rules/arya-ai.mdc
 ```
 
-Attach this repo to your workspace and reference `skills/desiharveyspecter-orchestrator/SKILL.md` before Indian-law tasks.
+Attach this repo to your workspace and reference `skills/arya-ai-orchestrator/SKILL.md` before Indian-law tasks.
 
 ### Gemini
 
@@ -130,16 +130,16 @@ Use `GEMINI.md` as the platform entry file. If your Gemini environment supports 
 Run the server:
 
 ```bash
-uv --directory /absolute/path/to/DesiHarveySpecter run server/main.py
+uv --directory /absolute/path/to/arya-ai run server/main.py
 ```
 
-Then use the `desiharveyspecter` MCP server tools.
+Then use the `arya-ai` MCP server tools.
 
 ## MCP Tools
 
-DesiHarveySpecter exposes these local tools:
+arya-ai exposes these local tools:
 
-- `list_desiharveyspecter_capabilities`
+- `list_arya_ai_capabilities`
 - `list_legal_domains`
 - `list_commands`
 - `get_command_prompt`
@@ -198,7 +198,7 @@ Check limitation, forum, and maintainability for this proposed civil suit.
 ```
 
 ```text
-Search DesiHarveySpecter protocols for Section 65B digital evidence and prepare a trial checklist.
+Search arya-ai protocols for Section 65B digital evidence and prepare a trial checklist.
 ```
 
 ```text
@@ -212,7 +212,7 @@ Prepare an RTI application and first appeal strategy for non-disclosure by a pub
 ## Repository Layout
 
 ```text
-DesiHarveySpecter/
+arya-ai/
 ├── .codex-plugin/          Codex plugin manifest
 ├── .claude-plugin/         Claude-style plugin metadata
 ├── .cursor/rules/          Cursor rules
@@ -232,10 +232,10 @@ DesiHarveySpecter/
 
 ## Legal and Professional Disclaimer
 
-DesiHarveySpecter is a legal drafting and research aid. It does not replace an advocate's professional judgment. Every output must be checked by a qualified lawyer before filing, sending, or relying on it. Verify statutes, rules, limitation, citations, court fees, forum-specific practice directions, annexures, affidavits, authorisations, and procedural requirements from current primary sources.
+arya-ai is a legal drafting and research aid. It does not replace an advocate's professional judgment. Every output must be checked by a qualified lawyer before filing, sending, or relying on it. Verify statutes, rules, limitation, citations, court fees, forum-specific practice directions, annexures, affidavits, authorisations, and procedural requirements from current primary sources.
 
 ## Licensing
 
-The DesiHarveySpecter integration code and original wrapper materials are MIT licensed. Bundled source materials retain their original licenses and notices in `docs/source-licenses/`.
+The arya-ai integration code and original wrapper materials are MIT licensed. Bundled source materials retain their original licenses and notices in `docs/source-licenses/`.
 
-Important: the supplied `NCLT-Skills-main.zip` archive contained proprietary restrictions that prohibit redistribution. Its files are not included here. DesiHarveySpecter includes an original `skills/nclt-pdf-workflow/SKILL.md` replacement for local PDF and tribunal annexure workflows.
+Important: the supplied `NCLT-Skills-main.zip` archive contained proprietary restrictions that prohibit redistribution. Its files are not included here. arya-ai includes an original `skills/nclt-pdf-workflow/SKILL.md` replacement for local PDF and tribunal annexure workflows.

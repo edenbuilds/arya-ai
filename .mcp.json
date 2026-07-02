@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "desiharveyspecter": {
+    "arya-ai": {
       "command": "uv",
       "args": [
         "--directory",
