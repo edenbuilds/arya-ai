@@ -1,0 +1,3 @@
+- Check structure completeness
+- Verify sections cited
+- Ensure no placeholder remains

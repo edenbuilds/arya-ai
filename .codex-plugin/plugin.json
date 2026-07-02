@@ -1,0 +1,45 @@
+{
+  "name": "vakilpro",
+  "version": "1.0.0",
+  "description": "Comprehensive Indian-law assistant for lawyers: research, drafting, litigation strategy, NCLT/NCLAT/IBC pleadings, templates, protocol search, and local document tooling.",
+  "author": {
+    "name": "VakilPro"
+  },
+  "homepage": "https://github.com/omkarkamath/vakilpro",
+  "repository": "https://github.com/omkarkamath/vakilpro",
+  "license": "MIT",
+  "keywords": [
+    "india",
+    "law",
+    "legal",
+    "drafting",
+    "nclt",
+    "ibc",
+    "litigation",
+    "codex",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "VakilPro",
+    "shortDescription": "Indian-law research, drafting, and NCLT workflows.",
+    "longDescription": "VakilPro combines Indian-law specialist agents, command prompts, protocol references, legal drafting templates, and a local MCP server for Indian lawyers. It covers contract, criminal, civil procedure, corporate, NCLT/NCLAT, IBC, labour, property, IP, consumer, RTI, PIL, writs, ADR, and document workflows.",
+    "developerName": "VakilPro",
+    "category": "Productivity",
+    "capabilities": [
+      "Research",
+      "Drafting",
+      "Local MCP",
+      "Document Generation"
+    ],
+    "defaultPrompt": [
+      "Draft an Indian legal notice from these facts.",
+      "Check limitation and forum for this dispute.",
+      "Draft an NCLT Section 241-242 petition."
+    ],
+    "brandColor": "#0F766E",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

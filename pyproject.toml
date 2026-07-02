@@ -1,0 +1,15 @@
+[project]
+name = "vakilpro"
+version = "1.0.0"
+description = "Universal Indian-law MCP server and prompt-pack plugin."
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "VakilPro" }]
+dependencies = ["mcp[cli]>=1.0.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["server"]

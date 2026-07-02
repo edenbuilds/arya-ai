@@ -1,0 +1,8 @@
+{
+  "name": "vakilpro",
+  "description": "Comprehensive Indian-law plugin for lawyers: research, drafting, litigation strategy, NCLT/NCLAT/IBC pleadings, templates, protocol search, and local document tooling.",
+  "version": "1.0.0",
+  "author": {
+    "name": "VakilPro"
+  }
+}

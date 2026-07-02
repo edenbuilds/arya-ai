@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "vakilpro": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        ".",
+        "run",
+        "server/main.py"
+      ]
+    }
+  }
+}

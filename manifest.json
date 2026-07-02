@@ -1,0 +1,49 @@
+{
+  "manifest_version": "0.4",
+  "name": "vakilpro",
+  "display_name": "VakilPro - Indian Law Assistant",
+  "version": "1.0.0",
+  "description": "Local-first Indian-law MCPB extension for lawyers. Includes specialist agents, commands, protocol search, legal drafting templates, and NCLT/NCLAT/IBC drafting workflows.",
+  "long_description": "VakilPro combines Indian legal research, drafting, litigation strategy, company-law pleadings, limitation checks, RTI/writ/PIL support, contract/criminal/labour/property/IP analysis, and local document export helpers. It is designed to run as a prompt-pack in Claude Code, Codex, Cursor, Gemini CLI, and as a local MCP server wherever MCP is supported.",
+  "author": {
+    "name": "VakilPro"
+  },
+  "license": "MIT",
+  "keywords": [
+    "law",
+    "legal",
+    "india",
+    "advocate",
+    "drafting",
+    "nclt",
+    "nclat",
+    "ibc",
+    "litigation",
+    "mcp"
+  ],
+  "server": {
+    "type": "uv",
+    "entry_point": "server/main.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "${__dirname}",
+        "run",
+        "server/main.py"
+      ]
+    }
+  },
+  "tools_generated": false,
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "python": ">=3.10"
+    }
+  }
+}
