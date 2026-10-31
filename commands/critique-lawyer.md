@@ -1,6 +1,6 @@
 ---
-description: Critique legal arguments, strategies, and written submissions across ALL legal domains (labour, consumer, civil, writ, criminal, property, IP, corporate). Provides detailed feedback on structure, persuasiveness, legal accuracy, case law mastery, and logical coherence with actionable improvement suggestions.
-argument-hint: [paste your argument or describe your strategy]
+description: "Critique legal arguments, strategies, and written submissions across ALL legal domains (labour, consumer, civil, writ, criminal, property, IP, corporate). Provides detailed feedback on structure, persuasiveness, legal accuracy, case law mastery, and logical coherence with actionable improvement suggestions."
+argument-hint: "[paste your argument or describe your strategy]"
 ---
 
 # Command: Universal Legal Argument Critique

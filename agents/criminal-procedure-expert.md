@@ -1,6 +1,6 @@
 ---
 name: criminal-procedure-expert
-description: - **Agent ID**: criminal-procedure-expert
+description: "Criminal Procedure Expert for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 tools: [Task, Read, Write, Bash, Grep, Glob]
 ---
 

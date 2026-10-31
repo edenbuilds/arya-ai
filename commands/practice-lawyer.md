@@ -1,6 +1,6 @@
 ---
-description: Interactive mock court practice across ALL legal domains (labour, consumer, civil, writ petitions, criminal) with AI judge, opposing counsel, and witnesses. Provides realistic court simulations, performance feedback, and skill development for lawyers, law students, and aspiring litigators.
-argument-hint: [domain] [case-type] [difficulty]
+description: "Interactive mock court practice across ALL legal domains (labour, consumer, civil, writ petitions, criminal) with AI judge, opposing counsel, and witnesses. Provides realistic court simulations, performance feedback, and skill development for lawyers, law students, and aspiring litigators."
+argument-hint: "[domain] [case-type] [difficulty]"
 ---
 
 # Command: Universal Litigation Practice Simulator

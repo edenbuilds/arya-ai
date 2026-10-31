@@ -1,6 +1,6 @@
 ---
-description: Provide step-by-step self-representation guidance across ALL law domains (labour, consumer, civil, property, writ petitions, IP, criminal) for litigants who cannot afford lawyers. Automatically detects legal domain and provides domain-specific filing guides, court etiquette, cost savings analysis, and success strategies.
-argument-hint: [describe your legal situation in plain English]
+description: "Provide step-by-step self-representation guidance across ALL law domains (labour, consumer, civil, property, writ petitions, IP, criminal) for litigants who cannot afford lawyers. Automatically detects legal domain and provides domain-specific filing guides, court etiquette, cost savings analysis, and success strategies."
+argument-hint: "[describe your legal situation in plain English]"
 ---
 
 # Command: Universal Self-Representation Guide

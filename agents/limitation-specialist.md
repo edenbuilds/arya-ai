@@ -1,6 +1,6 @@
 ---
 name: limitation-specialist
-description: - **Name**: limitation-specialist
+description: "Limitation Specialist for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 ---
 
 # Limitation Specialist Agent

@@ -1,5 +1,5 @@
 ---
-description: Assess viability of filing Public Interest Litigation (PIL) for social justice causes, environmental protection, corruption exposure, or enforcement of diffused/collective rights. Evaluates bonafide intent, public interest element, evidence strength, and strategic litigation approach.
+description: "Assess viability of filing Public Interest Litigation (PIL) for social justice causes, environmental protection, corruption exposure, or enforcement of diffused/collective rights. Evaluates bonafide intent, public interest element, evidence strength, and strategic litigation approach."
 ---
 
 # /pil-viability - Public Interest Litigation Assessment

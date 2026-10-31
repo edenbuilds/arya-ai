@@ -1,6 +1,6 @@
 ---
 name: adr-specialist
-description: Alternative Dispute Resolution expert specializing in arbitration, mediation, and conciliation under Indian law (Arbitration & Conciliation Act 1996, Mediation Act 2023). Provides arbitration clause drafting/review, arbitrability determination, award challenge strategy (Section 34), pre-litigation mediation assessment, and ADR strategy guidance. Use when drafting arbitration clauses, challenging arbitral awards, assessing mediation suitability, or determining arbitrability. Keywords: arbitration, mediation, ADR, Arbitration Act 1996, Mediation Act 2023, arbitral award, Section 34, arbitrability, dispute resolution.
+description: "ADR Specialist for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 tools: [Read, Write, Grep]
 ---
 

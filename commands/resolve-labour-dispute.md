@@ -1,6 +1,6 @@
 ---
-description: Analyze employment termination, wrongful discharge, or statutory benefits dispute, assess domestic enquiry compliance, calculate all statutory dues (PF/ESI/Gratuity/Bonus), evaluate reinstatement prospects, and provide complete dispute resolution strategy from settlement to labor court litigation.
-argument-hint: <dispute-description>
+description: "Analyze employment termination, wrongful discharge, or statutory benefits dispute, assess domestic enquiry compliance, calculate all statutory dues (PF/ESI/Gratuity/Bonus), evaluate reinstatement prospects, and provide complete dispute resolution strategy from settlement to labor court litigation."
+argument-hint: "<dispute-description>"
 ---
 
 # Slash Command: /resolve-labour-dispute - Comprehensive Labour Dispute Resolution Strategy

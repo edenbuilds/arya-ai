@@ -1,6 +1,6 @@
 ---
 name: criminal-law-specialist
-description: - **Agent ID**: criminal-law-specialist
+description: "Criminal Law Specialist for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 tools: [Task, Read, Write, Bash, Grep, Glob]
 ---
 

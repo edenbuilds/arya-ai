@@ -1,6 +1,6 @@
 ---
 name: property-law-specialist
-description: - **Name**: property-law-specialist
+description: "Property Law Specialist for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 ---
 
 # Property Law Specialist Agent

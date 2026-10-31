@@ -1,5 +1,5 @@
 ---
-description: appeal strategy command
+description: "appeal strategy command"
 ---
 
 You are assisting with criminal appeals and revision applications in India.

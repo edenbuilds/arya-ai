@@ -32,6 +32,11 @@ mcp = FastMCP("arya-ai")
 BUNDLE_ROOT = Path(__file__).resolve().parent.parent
 SKILLS_DIR = BUNDLE_ROOT / "skills"
 AGENTS_DIR = BUNDLE_ROOT / "agents"
+PIPELINE_AGENTS_DIR = BUNDLE_ROOT / "company-drafting-agents"
+MH_DIR = BUNDLE_ROOT / "maharashtra"
+MH_FORUMS_DIR = MH_DIR / "forum-config" / "exemplars"
+MH_TEMPLATES_DIR = MH_DIR / "templates"
+MH_REFERENCES_DIR = MH_DIR / "references"
 COMMANDS_DIR = BUNDLE_ROOT / "commands"
 PROTOCOLS_DIR = BUNDLE_ROOT / "protocols"
 TEMPLATES_DIR = SKILLS_DIR / "indian-legal-drafting" / "assets" / "templates"
@@ -63,12 +68,54 @@ CASE_TYPE_DESCRIPTIONS: dict[str, str] = {
     "ibc-section-10-corporate-applicant": "IBC Section 10 corporate applicant initiation",
 }
 
+
+
+def _frontmatter_description(path: Path) -> str:
+    for line in path.read_text(encoding="utf-8").splitlines()[1:10]:
+        if line.startswith("description:"):
+            return line.removeprefix("description:").strip()
+    return ""
+
+
+# Maharashtra court and tribunal case types come from the skills/*-draft folders
+# merged in from the Maharashtra drafting pack (vikram-shah-archive companion).
+MH_CASE_TYPES: list[str] = sorted(
+    d.name.removesuffix("-draft")
+    for d in SKILLS_DIR.glob("*-draft")
+    if (d / "SKILL.md").is_file() and d.name.removesuffix("-draft") not in CASE_TYPES
+)
+CASE_TYPE_DESCRIPTIONS.update({c: _frontmatter_description(SKILLS_DIR / f"{c}-draft" / "SKILL.md") for c in MH_CASE_TYPES})
+CASE_TYPES = CASE_TYPES + MH_CASE_TYPES
+
 AGENT_NAMES: list[str] = ["reader", "format", "drafter", "verifier", "refiner", "overseer"]
 
+# The user's acronym decides the case type. APL is quashing, not ABA; MAT is the
+# Administrative Tribunal, not a matrimonial matter.
+ACRONYM_TO_CASE_TYPE: dict[str, str] = {
+    "APL": "application-482",
+    "ABA": "anticipatory-bail",
+    "BA": "bail",
+    "WP": "civil-wp",
+    "CrWP": "criminal-wp",
+    "PIL": "pil",
+    "FA": "first-appeal",
+    "SA": "second-appeal",
+    "MAT OA": "mat-oa",
+    "OA (DRT)": "drt-oa",
+    "SA (SARFAESI s.17)": "sarfaesi-17",
+    "CP (Company Petition 241-242)": "nclt-section-241-242-petition",
+    "CP (IB) s.7": "ibc-section-7",
+    "CP (IB) s.9": "ibc-section-9-operational-creditor-application",
+    "CP (IB) s.10": "ibc-section-10-corporate-applicant",
+}
 
-
-
-ACRONYM_TO_CASE_TYPE: dict[str, str] = {}
+# Bombay High Court seat by district, from maharashtra/references/territorial-jurisdiction.md.
+HC_BENCH_DISTRICTS: dict[str, list[str]] = {
+    "bombay-hc-mumbai": ["mumbai", "mumbai city", "mumbai suburban", "thane", "palghar", "nashik", "pune", "raigad"],
+    "bombay-hc-kolhapur": ["satara", "sangli", "solapur", "kolhapur", "ratnagiri", "sindhudurg"],
+    "bombay-hc-nagpur": ["nagpur", "akola", "amravati", "bhandara", "buldhana", "chandrapur", "wardha", "yavatmal", "gondia", "gadchiroli", "washim"],
+    "bombay-hc-aurangabad": ["aurangabad", "chhatrapati sambhajinagar", "ahmednagar", "ahilyanagar", "beed", "dhule", "jalna", "jalgaon", "latur", "nanded", "osmanabad", "dharashiv", "parbhani", "nandurbar", "hingoli"],
+}
 
 
 def _safe_slug(value: str) -> str:
@@ -105,20 +152,23 @@ def list_arya_ai_capabilities() -> dict:
     skill_count = len(list(SKILLS_DIR.glob("*/SKILL.md")))
     return {
         "name": "arya-ai",
-        "summary": "Indian legal assistant for research, drafting, litigation strategy, NCLT/NCLAT/IBC pleadings, and local document workflows.",
+        "summary": "Indian legal assistant for research, drafting, litigation strategy, Bombay High Court and Maharashtra tribunal pleadings, NCLT/NCLAT/IBC pleadings, and local document workflows.",
         "counts": {
             "specialist_agents": len(list(AGENTS_DIR.glob("*.md"))),
             "commands": len(list(COMMANDS_DIR.glob("*.md"))),
             "skills": skill_count,
             "protocols": len(list(PROTOCOLS_DIR.rglob("*.md"))),
-            "company_case_types": len(CASE_TYPES),
-            "drafting_templates": len(list(TEMPLATES_DIR.glob("*.md"))) if TEMPLATES_DIR.exists() else 0,
+            "drafting_case_types": len(CASE_TYPES),
+            "maharashtra_case_types": len(MH_CASE_TYPES),
+            "maharashtra_forums": len(list(MH_FORUMS_DIR.glob("*.md"))),
+            "drafting_templates": len(_template_paths()),
         },
         "domains": [
             "contract law",
             "criminal law",
             "civil procedure",
             "corporate law",
+            "Bombay High Court and Maharashtra tribunals",
             "NCLT/NCLAT",
             "IBC",
             "labour law",
@@ -226,34 +276,119 @@ def get_protocol(relative_path: str) -> dict:
 
 @mcp.tool(annotations=ToolAnnotations(title="List Drafting Templates", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
 def list_drafting_templates() -> dict:
-    """List general Indian legal drafting templates."""
-    templates = []
-    if TEMPLATES_DIR.exists():
-        for path in sorted(TEMPLATES_DIR.glob("*.md")):
-            templates.append({"name": path.stem, "path": path.relative_to(BUNDLE_ROOT).as_posix(), "title": _first_heading_or_line(path)})
+    """List drafting templates: general Indian forms plus Maharashtra long-form pleadings.
+
+    Maharashtra templates are grouped (high-court, tribunals, applications, trial,
+    conveyancing) and include opposite-side drafts such as a writ reply affidavit.
+    """
+    templates = [
+        {"name": path.stem, "group": "general" if path.parent == TEMPLATES_DIR else path.parent.name, "path": path.relative_to(BUNDLE_ROOT).as_posix(), "title": _first_heading_or_line(path)}
+        for path in _template_paths()
+    ]
     return {"templates": templates, "count": len(templates)}
+
+
+# Short names the Maharashtra pack's README and USAGE use.
+TEMPLATE_ALIASES = {
+    "civil-wp": "civil-writ-petition",
+    "criminal-wp": "criminal-writ-petition",
+    "wp-reply-affidavit": "affidavit-in-reply-writ",
+    "wp-rejoinder": "rejoinder-affidavit-writ",
+    "aba": "anticipatory-bail",
+    "apl": "application-528-bnss",
+}
+
+
+def _template_paths() -> list[Path]:
+    general = sorted(TEMPLATES_DIR.glob("*.md")) if TEMPLATES_DIR.exists() else []
+    mh = sorted(p for p in MH_TEMPLATES_DIR.glob("*/*.md")) if MH_TEMPLATES_DIR.exists() else []
+    return general + mh
 
 
 @mcp.tool(annotations=ToolAnnotations(title="Get Drafting Template", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
 def get_drafting_template(template_name: str) -> dict:
     """Return a general drafting template such as legal_notice or civil_suit."""
-    name = _safe_slug(template_name.removesuffix(".md"))
-    path = TEMPLATES_DIR / f"{name}.md"
+    name = _safe_slug(template_name.removesuffix(".md")).lower()
+    name = TEMPLATE_ALIASES.get(name, name)
+    paths = _template_paths()
+    path = next((p for p in paths if _safe_slug(p.stem) == name), None)
+    if path is None:
+        # ponytail: substring match so "civil-wp" finds civil-writ-petition; ambiguity is reported, not guessed.
+        hits = [p for p in paths if all(tok in _safe_slug(p.stem) for tok in name.split("-") if tok)]
+        if len(hits) != 1:
+            return {"error": f"unknown or ambiguous template '{template_name}'", "matches": [p.stem for p in hits], "available": [p.stem for p in paths]}
+        path = hits[0]
+    return {"name": path.stem, "path": path.relative_to(BUNDLE_ROOT).as_posix(), "content": _read_text_file(path)}
+
+
+@mcp.tool(annotations=ToolAnnotations(title="List Maharashtra Forums", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
+def list_forums() -> dict:
+    """List Bombay High Court seats and Maharashtra tribunals that have a forum-config."""
+    forums = [{"forum_id": p.stem, "title": _first_heading_or_line(p)} for p in sorted(MH_FORUMS_DIR.glob("*.md"))]
+    return {"forums": forums, "count": len(forums), "note": "Call get_forum_config(forum_id) for the header, cause-title, annexure and paper rules."}
+
+
+@mcp.tool(annotations=ToolAnnotations(title="Get Forum Config", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
+def get_forum_config(forum_id: str) -> dict:
+    """Return the forum-config (court header, house style, annexure prefix, fees note) for one forum."""
+    path = MH_FORUMS_DIR / f"{_safe_slug(forum_id)}.md"
     if not path.is_file():
-        return {"error": f"unknown template '{template_name}'", "available": [p.stem for p in sorted(TEMPLATES_DIR.glob("*.md"))] if TEMPLATES_DIR.exists() else []}
-    return {"name": name, "path": path.relative_to(BUNDLE_ROOT).as_posix(), "content": _read_text_file(path)}
+        return {"error": f"unknown forum '{forum_id}'", "available": [p.stem for p in sorted(MH_FORUMS_DIR.glob("*.md"))]}
+    return {"forum_id": path.stem, "content": _read_text_file(path)}
 
 
-FULL_ORCHESTRATION_SCRIPT = """# arya-ai — INDIAN COMPANY-LAW FORUMS (NCLT / NCLAT / HIGH COURT COMPANY BENCH) DRAFTING · FULL ORCHESTRATION SCRIPT
+@mcp.tool(annotations=ToolAnnotations(title="Resolve Bombay High Court Bench", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
+def resolve_bench(district: str, forum_class: str = "high-court") -> dict:
+    """Map a Maharashtra district to its Bombay High Court seat.
+
+    For tribunals (MAT, DRT, consumer, MACT, NCLT, labour) the territorial note is
+    returned instead, because their limits change by notification.
+    """
+    key = district.strip().lower().removesuffix(" district")
+    note = _read_text_file(MH_REFERENCES_DIR / "territorial-jurisdiction.md")
+    if forum_class != "high-court":
+        return {"district": district, "forum_class": forum_class, "territorial_note": note}
+    for forum_id, districts in HC_BENCH_DISTRICTS.items():
+        if key in districts:
+            result = {"district": district, "forum_id": forum_id, "verify": "Confirm the sitting notification on bombayhighcourt.nic.in before filing."}
+            if forum_id == "bombay-hc-kolhapur":
+                result["caveat"] = "Kolhapur circuit: if it is not sitting for the cause-list week, these districts stay with the Principal Seat (bombay-hc-mumbai)."
+            return result
+    return {"district": district, "error": "district not in the Bombay High Court map; it may be outside Maharashtra or spelled differently", "territorial_note": note}
+
+
+@mcp.tool(annotations=ToolAnnotations(title="Get Maharashtra Reference Note", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
+def get_reference_note(name: str) -> dict:
+    """Return a Maharashtra practice note: territorial-jurisdiction, acronyms, court-fees-stamp or efiling."""
+    path = MH_REFERENCES_DIR / f"{_safe_slug(name.removesuffix('.md'))}.md"
+    if not path.is_file():
+        return {"error": f"unknown note '{name}'", "available": [p.stem for p in sorted(MH_REFERENCES_DIR.glob("*.md"))]}
+    return {"name": path.stem, "content": _read_text_file(path)}
+
+
+FULL_ORCHESTRATION_SCRIPT = """# arya-ai — DRAFTING · FULL ORCHESTRATION SCRIPT
+# Company-law forums (NCLT / NCLAT / IBC) and Maharashtra courts and tribunals
+# (Bombay High Court seats, MAT, MACT, Consumer, DRT/DRAT, Labour/Industrial, MahaRERA, Family, trial courts)
 
 **YOU MUST execute every step below in order. DO NOT skip steps. DO NOT write
 standalone python-docx, JavaScript, or shell scripts to generate output —
 invoke the tools listed at each step.**
 
+## BEFORE STEP 0 — ASK, THEN WAIT
+
+Ask the advocate two things and wait for the answers:
+1. Which instrument and forum (use their acronym; call `list_case_types()` for the acronym map).
+2. Whether they have a reference draft to follow. If they do, follow its structure, headings, cause
+   title, numbering and register, and take nothing factual from it about this matter.
+
 ## STEP 0 — CREATE THE CASE FOLDER
 
-Call `create_case_folder(case_type)` where `case_type` is one of:
-nclt-section-241-242-petition, nclt-scheme-of-arrangement, nclt-section-66-reduction-of-capital, nclt-section-252-revival-struck-off-company, nclt-section-213-investigation, nclt-section-245-class-action, nclat-appeal-section-421, nclat-appeal-section-61-ibc, ibc-section-9-operational-creditor-application, ibc-section-10-corporate-applicant.
+Call `create_case_folder(case_type)` with a slug from `list_case_types()`.
+
+For a Maharashtra case type, also:
+- `resolve_bench(district)` for a High Court matter, or `get_reference_note("territorial-jurisdiction")` for a tribunal;
+- `get_forum_config(forum_id)` for the header and house style;
+- `get_drafting_template(...)` for the long-form official form (writ, reply affidavit, rejoinder, MACT, consumer, DRT, deeds).
 
 The tool returns `case_folder` — an absolute path. **Use this path in every
 subsequent save_artifact and save_draft_as_docx call.**
@@ -271,7 +406,7 @@ Call `get_case_type_format(case_type)`. Read the returned SKILL.md carefully.
 
 ## STEP 3 — LOAD THE PLEADING BASE
 
-Call `get_pleading_base()`. Read the universal skeleton + common drafting
+Call `get_pleading_base(case_type)`. Read the universal skeleton + common drafting
 discipline (citation rules, AI-fabricated-citation risk per HC cautions).
 
 ## STEP 4 — RUN THE READER AGENT (APPLIES PRIVACY FIREWALL)
@@ -425,15 +560,27 @@ def get_agent_instructions(agent_name: str = "") -> str:
             f"Available: {', '.join(AGENT_NAMES)}. "
             "Call with no arguments to receive the full orchestration script."
         )
-    agent_md = AGENTS_DIR / agent_name / f"{agent_name}.md"
+    agent_md = PIPELINE_AGENTS_DIR / agent_name / f"{agent_name}.md"
     if not agent_md.exists():
         return f"Error: agent file not found for '{agent_name}'."
-    return agent_md.read_text(encoding="utf-8")
+    text = agent_md.read_text(encoding="utf-8")
+    mh_md = MH_DIR / "agents" / agent_name / f"{agent_name}.md"
+    if mh_md.exists():
+        text += "\n\n---\n\n# Maharashtra courts and tribunals (apply for non-company case types)\n\n" + mh_md.read_text(encoding="utf-8")
+    return text
 
 
 @mcp.tool(annotations=ToolAnnotations(title="Get Pleading Base Structure", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
-def get_pleading_base() -> str:
-    """Get the shared company drafting base structure."""
+def get_pleading_base(case_type: str = "") -> str:
+    """Get the shared pleading skeleton and common drafting discipline.
+
+    Pass a Maharashtra case_type (writ, bail, MACT, consumer, DRT and so on) to get
+    the Maharashtra pleading base; otherwise the company-law base is returned.
+    """
+    if case_type in MH_CASE_TYPES:
+        return "\n\n---\n\n".join(
+            (MH_DIR / name).read_text(encoding="utf-8") for name in ("pleading-base.md", "drafting-common.md")
+        )
     common_md = SKILLS_DIR / "_drafting_common" / "SKILL.md"
     parts: list[str] = []
     if PLEADING_BASE_DIR.exists():

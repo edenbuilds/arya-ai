@@ -2,11 +2,12 @@
   "manifest_version": "0.4",
   "name": "arya-ai",
   "display_name": "arya-ai - Indian Law Assistant",
-  "version": "1.0.0",
-  "description": "Local-first Indian-law MCPB extension for lawyers. Includes specialist agents, commands, protocol search, legal drafting templates, and NCLT/NCLAT/IBC drafting workflows.",
+  "version": "1.1.0",
+  "description": "Indian-law plugin for advocates: research, drafting for the Bombay High Court and Maharashtra tribunals, NCLT/NCLAT/IBC pleadings, business contracts, AI-practice safeguards, protocol search, and local DOCX export.",
   "long_description": "arya-ai combines Indian legal research, drafting, litigation strategy, company-law pleadings, limitation checks, RTI/writ/PIL support, contract/criminal/labour/property/IP analysis, and local document export helpers. It is designed to run as a prompt-pack in Claude Code, Codex, Cursor, Gemini CLI, and as a local MCP server wherever MCP is supported.",
   "author": {
-    "name": "arya-ai"
+    "name": "Eden Builds",
+    "url": "https://edenbuilds.me"
   },
   "license": "MIT",
   "keywords": [
@@ -19,7 +20,12 @@
     "nclat",
     "ibc",
     "litigation",
-    "mcp"
+    "mcp",
+    "maharashtra",
+    "bombay-high-court",
+    "mact",
+    "consumer",
+    "drt"
   ],
   "server": {
     "type": "uv",

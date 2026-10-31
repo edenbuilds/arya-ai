@@ -1,5 +1,5 @@
 ---
-description: Comprehensive Indian legal assistance command providing expert guidance across all domains of Indian law including constitutional, criminal, civil, corporate, cyber, IP, tax, family, and property law. Powered by 160+ protocols, 18 specialized agents, and integrated knowledge graph.
+description: "Comprehensive Indian legal assistance command providing expert guidance across all domains of Indian law including constitutional, criminal, civil, corporate, cyber, IP, tax, family, and property law. Powered by 160+ protocols, 18 specialized agents, and integrated knowledge graph."
 argument-hint: "Can government restrict my freedom of speech online?"
 ---
 

@@ -1,9 +1,10 @@
 {
   "name": "arya-ai",
-  "version": "1.0.0",
-  "description": "Comprehensive Indian-law assistant for lawyers: research, drafting, litigation strategy, NCLT/NCLAT/IBC pleadings, templates, protocol search, and local document tooling.",
+  "version": "1.1.0",
+  "description": "Indian-law plugin for advocates: research, drafting for the Bombay High Court and Maharashtra tribunals, NCLT/NCLAT/IBC pleadings, business contracts, AI-practice safeguards, protocol search, and local DOCX export.",
   "author": {
-    "name": "arya-ai"
+    "name": "Eden Builds",
+    "url": "https://edenbuilds.me"
   },
   "homepage": "https://github.com/edenbuilds/arya-ai",
   "repository": "https://github.com/edenbuilds/arya-ai",
@@ -17,15 +18,20 @@
     "ibc",
     "litigation",
     "codex",
-    "mcp"
+    "mcp",
+    "maharashtra",
+    "bombay-high-court",
+    "mact",
+    "consumer",
+    "drt"
   ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "arya-ai",
-    "shortDescription": "Indian-law research, drafting, and NCLT workflows.",
+    "shortDescription": "Indian-law research and drafting, Maharashtra courts and NCLT.",
     "longDescription": "arya-ai combines Indian-law specialist agents, command prompts, protocol references, legal drafting templates, and a local MCP server for Indian lawyers. It covers contract, criminal, civil procedure, corporate, NCLT/NCLAT, IBC, labour, property, IP, consumer, RTI, PIL, writs, ADR, and document workflows.",
-    "developerName": "arya-ai",
+    "developerName": "Eden Builds",
     "category": "Productivity",
     "capabilities": [
       "Research",

@@ -1,5 +1,5 @@
 ---
-description: breach analysis command
+description: "breach analysis command"
 ---
 
 # Breach Analysis Command

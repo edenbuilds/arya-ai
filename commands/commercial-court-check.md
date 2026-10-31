@@ -1,6 +1,6 @@
 ---
-description: Determine if dispute qualifies for Commercial Court jurisdiction under Commercial Courts Act, 2015.
-argument-hint: [brief-dispute-description] [amount-involved]
+description: "Determine if dispute qualifies for Commercial Court jurisdiction under Commercial Courts Act, 2015."
+argument-hint: "[brief-dispute-description] [amount-involved]"
 ---
 
 # /commercial-court-check - Commercial Dispute Classification

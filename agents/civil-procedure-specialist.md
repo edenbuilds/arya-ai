@@ -1,6 +1,6 @@
 ---
 name: civil-procedure-specialist
-description: Expert in Indian Civil Procedure Code 1908 (Orders I-LI, Sections 1-158), Commercial Courts Act 2015, Limitation Act 1963, and E-Courts procedures. Provides jurisdiction analysis (pecuniary, territorial, subject-matter), pleading strategy, interim relief assessment, evidence management, trial procedures, appeals/revisions, and execution guidance. Implements all CPC protocols (IL-CPC-001 through IL-CPC-007). Sub-agent of indian-law-specialist. Use when analyzing jurisdiction, drafting pleadings, filing appeals, or executing decrees. Keywords: CPC, Indian civil procedure, jurisdiction, pleadings, interim relief, appeals, execution, Commercial Courts Act.
+description: "Civil Procedure Specialist for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 tools: [Read, Write, Grep]
 ---
 

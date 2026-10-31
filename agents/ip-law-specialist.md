@@ -1,6 +1,6 @@
 ---
 name: ip-law-specialist
-description: - **Name**: ip-law-specialist
+description: "IP Law Specialist for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 ---
 
 # IP Law Specialist Agent

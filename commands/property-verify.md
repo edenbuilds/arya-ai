@@ -1,6 +1,6 @@
 ---
-description: Conduct comprehensive property title verification, due diligence analysis, encumbrance review, and risk assessment for immovable property transactions (sale, mortgage, lease, gift) under Transfer of Property Act and Registration Act.
-argument-hint: <property-details> <transaction-type>
+description: "Conduct comprehensive property title verification, due diligence analysis, encumbrance review, and risk assessment for immovable property transactions (sale, mortgage, lease, gift) under Transfer of Property Act and Registration Act."
+argument-hint: "<property-details> <transaction-type>"
 ---
 
 # Slash Command: /property-verify - Property Title Verification and Due Diligence

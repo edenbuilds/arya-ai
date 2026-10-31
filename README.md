@@ -10,6 +10,9 @@ arya-ai helps with:
 
 - Indian legal research and issue spotting.
 - Legal notices, civil suits, criminal complaints, affidavits, opinions, RTI applications, writ/PIL workflows, and contract review.
+- Bombay High Court (Mumbai, Nagpur, Aurangabad, Kolhapur) and Maharashtra tribunal pleadings: writs, APL, ABA, bail, appeals, MAT, MACT, consumer, DRT/DRAT, SARFAESI, NI 138, ULP, MahaRERA, family court, civil suits, written statements, reply affidavits and deeds.
+- Business documents: rent, NDA, employment, founder, freelance, MSA, DPDPA notices, terms, cease and desist, MoU, partnership.
+- AI-practice safeguards: anonymisation, hallucination checks, a pre-filing checklist, matter briefs, four-tier contract review.
 - NCLT/NCLAT/IBC/company-law pleadings using a six-stage Reader, Format, Drafter, Verifier, Refiner, and Overseer workflow.
 - Limitation analysis, jurisdiction checks, trial preparation, appeal strategy, and evidence review.
 - Protocol-backed analysis across contract, criminal, civil procedure, corporate, labour, property, IP, consumer, RERA, RTI, PIL, writ, ADR, cyber, and civic-law domains.
@@ -22,10 +25,12 @@ arya-ai helps with:
 |---|---:|---|
 | Specialist legal agents | 32 | `agents/` |
 | Command workflows | 32 | `commands/` |
-| Skills and drafting workflows | 28 | `skills/` |
+| Skills and drafting workflows | 67 | `skills/` |
 | Protocol reference files | 235 | `protocols/` |
+| Maharashtra court and tribunal case types | 36 | `skills/<case-type>-draft/` |
 | Company-law drafting case types | 10 | `skills/nclt-*`, `skills/ibc-*`, `skills/nclat-*` |
-| General drafting templates | 4 | `skills/indian-legal-drafting/assets/templates/` |
+| Maharashtra forum configs (Bombay HC seats, tribunals) | 20 | `maharashtra/forum-config/exemplars/` |
+| Long-form drafting templates | 50 | `maharashtra/templates/`, `skills/indian-legal-drafting/assets/templates/` |
 | Local MCP server | 1 | `server/main.py` |
 
 ## Covered Domains
@@ -76,11 +81,20 @@ Use the repo as a local plugin folder or copy it into your plugin marketplace/wo
 
 ### Claude Code
 
-Use the repository as a Claude Code plugin/prompt directory:
+Install from GitHub:
+
+```text
+/plugin marketplace add edenbuilds/arya-ai
+/plugin install arya-ai@arya-ai
+```
+
+Or load a local clone:
 
 ```bash
 claude --plugin-dir /path/to/arya-ai
 ```
+
+The MCP server needs `uv` on the PATH. Install pandoc for DOCX export.
 
 Claude-specific metadata is in:
 
@@ -153,14 +167,18 @@ arya-ai exposes these local tools:
 - `get_case_type_format`
 - `get_agent_instructions`
 - `get_pleading_base`
+- `list_forums`
+- `get_forum_config`
+- `resolve_bench`
+- `get_reference_note`
 - `read_case_folder`
 - `create_case_folder`
 - `save_artifact`
 - `save_draft_as_docx`
 
-## Company-Law Drafting Pipeline
+## Drafting Pipeline
 
-For NCLT/NCLAT/IBC drafting, call `get_agent_instructions()` first. The required workflow is:
+For any pleading (Maharashtra courts and tribunals, or NCLT/NCLAT/IBC), call `get_agent_instructions()` first. For a Maharashtra matter it also routes through `resolve_bench`, `get_forum_config` and the long-form template. The required workflow is:
 
 1. Create a case folder.
 2. Save source documents.
@@ -173,6 +191,8 @@ For NCLT/NCLAT/IBC drafting, call `get_agent_instructions()` first. The required
 9. Refiner fixes and polishes.
 10. Overseer reviews as opposing counsel and hardens the final draft.
 11. Save final DOCX locally.
+
+Maharashtra case types: anticipatory-bail, application-482, bail, civil-suit, civil-wp, consumer-appeal-41, consumer-district-35, consumer-state-47, contempt-petition, criminal-appeal, criminal-revision, criminal-wp, drat-appeal, drt-oa, family-court-petition, first-appeal, gift-deed, ibc-section-7, labour-court-claim, mact-appeal-173, mact-claim-166, maharera-complaint, mat-oa, matrimonial-appeal, mortgage-deed, mrtu-pulp-complaint, ni-138-complaint, ni-138-reply-notice, partition-deed, pil, sale-deed-mh, sarfaesi-13-2-notice, sarfaesi-14, sarfaesi-17, second-appeal, title-investigation.
 
 Supported company-law case types:
 
@@ -206,6 +226,18 @@ Draft an NCLT Section 241-242 oppression and mismanagement petition from these f
 ```
 
 ```text
+ABA before the Nagpur Bench in an FIR from Chandrapur under BNS 118.
+```
+
+```text
+Draft the affidavit in reply to this writ petition for the respondent Municipal Corporation, Thane.
+```
+
+```text
+Run the pre-filing checklist on this draft before I file it.
+```
+
+```text
 Prepare an RTI application and first appeal strategy for non-disclosure by a public authority.
 ```
 
@@ -220,6 +252,7 @@ arya-ai/
 ├── commands/               Legal command workflows
 ├── company-drafting-agents/ Six-agent company-law pipeline personas
 ├── docs/                   Licensing and documentation
+├── maharashtra/            Forum configs, long-form templates, practice notes, pipeline notes
 ├── protocols/              Indian-law protocol reference library
 ├── server/                 Local MCP server
 ├── skills/                 Skills, templates, and drafting workflows

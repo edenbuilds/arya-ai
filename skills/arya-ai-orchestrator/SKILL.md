@@ -1,6 +1,6 @@
 ---
 name: arya-ai-orchestrator
-description: Route Indian-law work across arya-ai agents, commands, protocols, drafting templates, and local MCP tools. Use for any Indian legal research, drafting, litigation strategy, NCLT/NCLAT/IBC, limitation, RTI, writ, PIL, contract, criminal, civil, corporate, labour, property, IP, consumer, ADR, or court-preparation request.
+description: Route Indian-law work across arya-ai agents, commands, protocols, drafting templates, and local MCP tools. Use for any Indian legal research, drafting, litigation strategy, Bombay High Court or Maharashtra tribunal pleading, NCLT/NCLAT/IBC, limitation, RTI, writ, PIL, contract, criminal, civil, corporate, labour, property, IP, consumer, ADR, or court-preparation request.
 ---
 
 # arya-ai Orchestrator
@@ -20,7 +20,7 @@ Use this order of operations:
    - MCP tools for protocol search, prompt retrieval, case-folder creation, and DOCX generation.
 3. Ask for missing facts only when they are necessary. Otherwise proceed with stated assumptions and mark them clearly.
 4. Draft in Indian legal style: precise facts, statutory anchors, maintainable prayers, jurisdiction, limitation, cause of action, documents/annexures, verification, and filing-ready structure.
-5. Run a verification pass before final output.
+5. Run a verification pass before final output, using the pre-filing checklist in `skills/ai-practice-safeguards/`.
 
 ## Mandatory Safety Rules
 
@@ -39,6 +39,9 @@ Use the following default routing:
 - Contracts: `agents/contract-law-specialist.md`, `skills/contract-analyzer/`, contract protocols, and `commands/analyze-contract.md`.
 - Criminal: `agents/criminal-law-specialist.md`, `skills/criminal-case-analyzer/`, criminal protocols, `commands/bail-application.md`, `commands/file-fir.md`.
 - Civil procedure and litigation: civil procedure protocols, `commands/civil-suit.md`, `commands/trial-prep.md`, `commands/appeal-strategy.md`.
+- Bombay High Court and Maharashtra tribunals (writ, APL, ABA, bail, appeals, MAT, MACT, consumer, DRT/DRAT, SARFAESI, NI 138, ULP, MahaRERA, family, civil suit, deeds): `skills/maharashtra-courts-drafting/`, the matching `skills/<case-type>-draft/`, `maharashtra/` forum configs and long-form templates, and the MCP tools `resolve_bench`, `get_forum_config`, `get_drafting_template`.
+- Business contracts and notices (rent, NDA, employment, founder, freelance, MSA, DPDPA notice, ToS, C&D, MoU, partnership): `skills/indian-business-docs/`.
+- Before anything is filed, sent or signed: `skills/ai-practice-safeguards/` (anonymisation, hallucination checks, pre-filing checklist, matter brief, four-tier contract review).
 - NCLT/NCLAT/IBC/company law: company drafting skills, `company-drafting-agents/`, corporate protocols, and the local MCP drafting tools.
 - Limitation: `skills/limitation-calculator/` and limitation protocols.
 - Writs, RTI, PIL, civic remedies: `skills/writ-jurisdiction-advisor/`, `skills/rti-application-drafter/`, civic protocols, and related commands.

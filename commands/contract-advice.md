@@ -1,5 +1,5 @@
 ---
-description: contract advice command
+description: "contract advice command"
 ---
 
 # Contract Advice Command

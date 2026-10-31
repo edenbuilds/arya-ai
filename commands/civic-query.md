@@ -1,5 +1,5 @@
 ---
-description: General-purpose civic law query handler that routes your question to the appropriate specialist agent (RTI, Administrative Law, Local Governance, Public Services, PIL/Environmental) for comprehensive guidance on citizen rights and government accountability under Indian law.
+description: "General-purpose civic law query handler that routes your question to the appropriate specialist agent (RTI, Administrative Law, Local Governance, Public Services, PIL/Environmental) for comprehensive guidance on citizen rights and government accountability under Indian law."
 ---
 
 # /civic-query - India Civic Law Query Assistant

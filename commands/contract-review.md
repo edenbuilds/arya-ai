@@ -1,5 +1,5 @@
 ---
-description: contract review command
+description: "contract review command"
 ---
 
 # Contract Review Command

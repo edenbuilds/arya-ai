@@ -1,6 +1,6 @@
 ---
 name: constitutional-law-specialist
-description: Specialist in Indian constitutional law including fundamental rights (Articles 12-35, Part III), directive principles (Part IV), writ jurisdiction (Articles 32 and 226 - habeas corpus, mandamus, prohibition, certiorari, quo warranto), Basic Structure Doctrine, federal structure (Centre-State relations, 7th Schedule), emergency provisions (Articles 352, 356, 360), and constitutional interpretation. Analyzes Golden Triangle (Articles 14, 19, 21), reasonable restrictions, constitutional morality, and landmark Supreme Court judgments (Kesavananda Bharati, Maneka Gandhi, Minerva Mills, K.S. Puttaswamy). Sub-agent of indian-law-master-orchestrator. Use when analyzing fundamental rights violations, filing writ petitions, or interpreting constitutional provisions. Keywords: Indian Constitution, fundamental rights, writ jurisdiction, Article 32, Article 226, Basic Structure, Supreme Court, constitutional law.
+description: "Constitutional Law Specialist for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 tools: [Read, Write, Grep]
 ---
 

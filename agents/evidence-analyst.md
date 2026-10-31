@@ -1,6 +1,6 @@
 ---
 name: evidence-analyst
-description: - **Agent ID**: evidence-analyst
+description: "Evidence Analyst for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 ---
 
 # Evidence Analyst Agent

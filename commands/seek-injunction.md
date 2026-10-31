@@ -1,5 +1,5 @@
 ---
-description: Description
+description: "Description"
 ---
 
 # /seek-injunction - Injunction Strategy Command

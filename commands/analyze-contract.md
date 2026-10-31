@@ -1,5 +1,5 @@
 ---
-description: /analyze-contract - Contract Analysis Command
+description: "/analyze-contract - Contract Analysis Command"
 ---
 
 # /analyze-contract - Contract Analysis Command

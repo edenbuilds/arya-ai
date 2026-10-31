@@ -1,5 +1,5 @@
 ---
-description: Description
+description: "Description"
 ---
 
 # /patent-check - Patentability Assessment

@@ -1,8 +1,12 @@
 {
   "name": "arya-ai",
-  "description": "Comprehensive Indian-law plugin for lawyers: research, drafting, litigation strategy, NCLT/NCLAT/IBC pleadings, templates, protocol search, and local document tooling.",
-  "version": "1.0.0",
+  "description": "Indian-law plugin for advocates: research, drafting for the Bombay High Court and Maharashtra tribunals, NCLT/NCLAT/IBC pleadings, business contracts, AI-practice safeguards, protocol search, and local DOCX export.",
+  "version": "1.1.0",
   "author": {
-    "name": "arya-ai"
-  }
+    "name": "Eden Builds",
+    "url": "https://edenbuilds.me"
+  },
+  "homepage": "https://github.com/edenbuilds/arya-ai",
+  "repository": "https://github.com/edenbuilds/arya-ai",
+  "license": "MIT"
 }

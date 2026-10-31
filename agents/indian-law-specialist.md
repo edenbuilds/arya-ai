@@ -1,6 +1,6 @@
 ---
 name: indian-law-specialist
-description: - **Agent Name:** indian-law-specialist
+description: "Indian Law Specialist (master router) for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 ---
 
 # Indian Law Specialist Agent (Master Router)

@@ -1,6 +1,6 @@
 ---
-description: Simulate realistic labour court proceedings for lawyers to practice arguments, cross-examination, objection handling, and judicial reasoning. Provides AI-powered opposing counsel, judge responses, and case law challenges for comprehensive litigation skills development in wrongful termination, retrenchment, and industrial disputes cases.
-argument-hint: <case-scenario> [difficulty: easy/medium/hard]
+description: "Simulate realistic labour court proceedings for lawyers to practice arguments, cross-examination, objection handling, and judicial reasoning. Provides AI-powered opposing counsel, judge responses, and case law challenges for comprehensive litigation skills development in wrongful termination, retrenchment, and industrial disputes cases."
+argument-hint: "<case-scenario> [difficulty: easy/medium/hard]"
 ---
 
 # Slash Command: /practice-labour-case - Mock Labour Court Practice for Lawyers

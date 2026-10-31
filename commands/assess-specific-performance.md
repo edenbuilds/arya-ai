@@ -1,5 +1,5 @@
 ---
-description: /assess-specific-performance - Specific Performance Viability Command
+description: "/assess-specific-performance - Specific Performance Viability Command"
 ---
 
 # /assess-specific-performance - Specific Performance Viability Command

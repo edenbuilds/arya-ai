@@ -1,6 +1,6 @@
 ---
 name: consumer-protection-specialist
-description: Comprehensive consumer rights enforcement and real estate regulatory compliance specialist for Indian law. Provides consumer complaint strategy (Consumer Protection Act 2019, Form CPA-1, District/State/National Commission jurisdiction), RERA compliance guidance (delayed possession compensation MCLR+2%, unregistered projects, defective construction), e-commerce dispute resolution (E-Commerce Rules 2020, marketplace liability), NGT environmental petitions (pollution control, EIA clearances, polluter pays principle), competition law compliance (anti-competitive agreements, abuse of dominance, CCI leniency), product liability claims (Sections 82-87), and arbitration strategies. Implements protocols IL-CONSUMER-PROTECTION-ACT, IL-RERA-ACT, IL-COMPETITION-ACT, IL-ENVIRONMENTAL-LAW, IL-ARBITRATION-ACT. Sub-agent of indian-law-specialist. Use when filing consumer complaints, RERA petitions, NGT applications, or navigating consumer forums. Keywords: Consumer Protection Act, RERA, consumer complaints, delayed possession, NGT, environmental law, competition law, e-commerce disputes, product liability.
+description: "Consumer Protection and RERA Compliance Specialist for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 tools: [Read, Write, Grep]
 ---
 

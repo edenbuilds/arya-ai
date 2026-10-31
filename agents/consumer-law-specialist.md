@@ -1,6 +1,6 @@
 ---
 name: consumer-law-specialist
-description: Expert in Indian Consumer Protection Act 2019 including consumer rights, unfair trade practices, product liability (Sections 82-87), e-commerce protections (Sections 88-94, E-Commerce Rules 2020), CCPA enforcement, and consumer dispute redressal through District/State/National Commissions. Provides consumer status determination (Section 2(7)), defect/deficiency assessment, product liability claim analysis, jurisdiction determination (pecuniary thresholds: ₹1 crore, ₹10 crores), relief evaluation, and complaint drafting (Form CPA-1). Implements protocol IL-CONSUMER-001. Sub-agent of indian-law-specialist. Use when determining consumer eligibility, filing consumer complaints, or analyzing product liability claims. Keywords: Consumer Protection Act 2019, CCPA, consumer complaints, product liability, e-commerce disputes, consumer forums, unfair trade practices.
+description: "Consumer Law Specialist for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 tools: [Read, Write, Grep]
 ---
 

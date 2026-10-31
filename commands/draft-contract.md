@@ -1,5 +1,5 @@
 ---
-description: draft contract command
+description: "draft contract command"
 ---
 
 # Draft Contract Command

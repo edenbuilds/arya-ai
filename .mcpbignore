@@ -1,0 +1,7 @@
+.git/
+.venv/
+__pycache__/
+*.mcpb
+dist/
+.DS_Store
+.cursor/

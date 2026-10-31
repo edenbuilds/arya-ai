@@ -1,5 +1,5 @@
 ---
-description: Description
+description: "Description"
 ---
 
 # /start-arbitration - Arbitration Strategy and Clause Review

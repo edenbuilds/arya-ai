@@ -1,6 +1,6 @@
 ---
-description: Provide step-by-step guidance for workers who cannot afford a lawyer to represent themselves in labour court proceedings, including form drafting, evidence preparation, court etiquette, examination strategies, and argument structuring for wrongful termination/retrenchment disputes.
-argument-hint: <case-description>
+description: "Provide step-by-step guidance for workers who cannot afford a lawyer to represent themselves in labour court proceedings, including form drafting, evidence preparation, court etiquette, examination strategies, and argument structuring for wrongful termination/retrenchment disputes."
+argument-hint: "<case-description>"
 ---
 
 # Slash Command: /self-represent-labour - Self-Representation Guide for Labour Court

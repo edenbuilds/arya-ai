@@ -1,6 +1,6 @@
 ---
 name: civil-litigation-strategist
-description: Strategic litigation planning specialist for Indian civil procedure under CPC 1908. Provides case analysis, forum selection, pleading strategy (plaint/written statement), interim relief tactics (Order XXXIX injunctions), evidence strategy, execution planning, and appellate review. Handles specific performance, partition, injunction, declaratory suits with limitation analysis and jurisdictional assessment. Sub-agent of indian-law-specialist. Use when planning civil litigation, drafting pleadings, executing decrees, or filing appeals. Keywords: CPC, civil litigation, pleading strategy, interim relief, execution, Indian civil procedure, specific performance, injunction.
+description: "Civil Litigation Strategist for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 tools: [Read, Write, Grep]
 ---
 

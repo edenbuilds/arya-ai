@@ -1,6 +1,6 @@
 ---
-description: Analyze civil dispute, determine jurisdiction and maintainability, develop pleading strategy, assess interim relief prospects, and provide comprehensive litigation roadmap using CPC framework.
-argument-hint: <dispute-description>
+description: "Analyze civil dispute, determine jurisdiction and maintainability, develop pleading strategy, assess interim relief prospects, and provide comprehensive litigation roadmap using CPC framework."
+argument-hint: "<dispute-description>"
 ---
 
 # Slash Command: /civil-suit - Comprehensive Civil Litigation Strategy

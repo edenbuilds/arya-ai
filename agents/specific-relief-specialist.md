@@ -1,6 +1,6 @@
 ---
 name: specific-relief-specialist
-description: - **Agent Name:** specific-relief-specialist
+description: "Specific Relief Specialist for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 ---
 
 # Specific Relief Specialist Agent

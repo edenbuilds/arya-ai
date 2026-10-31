@@ -1,5 +1,5 @@
 ---
-description: Comprehensive writ petition viability analysis tool that assesses whether filing a writ petition (mandamus, certiorari, prohibition, habeas corpus, quo warranto) under Article 226 (High Court) or Article 32 (Supreme Court) is appropriate for your case.
+description: "Comprehensive writ petition viability analysis tool that assesses whether filing a writ petition (mandamus, certiorari, prohibition, habeas corpus, quo warranto) under Article 226 (High Court) or Article 32 (Supreme Court) is appropriate for your case."
 ---
 
 # /check-writ - Writ Petition Viability Checker

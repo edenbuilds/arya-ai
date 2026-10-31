@@ -1,6 +1,6 @@
 ---
 name: commercial-litigation-specialist
-description: - **Agent Name:** commercial-litigation-specialist
+description: "Commercial Litigation Specialist for Indian law. Use for analysis, strategy and drafting questions in this area; follows the arya-ai orchestrator safety rules."
 ---
 
 # Commercial Litigation Specialist Agent

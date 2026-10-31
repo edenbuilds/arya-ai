@@ -1,6 +1,6 @@
 ---
-description: Practice case interviews with realistic cases and performance feedback
-argument_hint: [case-type] [difficulty]
+description: "Practice case interviews with realistic cases and performance feedback"
+argument-hint: "[case-type] [difficulty]"
 ---
 
 # Case Interview Practice Session

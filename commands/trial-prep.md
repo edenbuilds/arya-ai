@@ -1,5 +1,5 @@
 ---
-description: trial prep command
+description: "trial prep command"
 ---
 
 You are assisting with criminal trial preparation in India.

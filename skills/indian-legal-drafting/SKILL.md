@@ -1,5 +1,5 @@
 ---
-name: indian_legal_drafting
+name: indian-legal-drafting
 description: Generate Indian legal documents using IPC, CrPC, CPC, and Constitution.
 ---
 
