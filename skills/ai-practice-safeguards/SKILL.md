@@ -86,7 +86,19 @@ Mark every clause **ACCEPT**, **NEGOTIATE** (state the ask), **REJECT** (state w
 
 Before finalising a pleading or opinion, write the other side's three strongest points and the forum's likely objections (maintainability, limitation, alternative remedy, suppression, delay). Answer each in the draft or flag it to the advocate. The drafting pipeline's Overseer stage does this for pleadings.
 
-## 8. Knowledge that compounds
+## 8. When to re-check the templates
+
+Templates go stale with the legal calendar. Re-check:
+- **After each RBI policy meeting** (about Feb, Apr, Jun, Aug, Oct, Dec): SBI MCLR used in RERA interest.
+- **February to April**: Union Budget changes to tax and GST templates, then anything that says "current financial year".
+- **1 July**: the BNS / BNSS / BSA section numbers in the criminal templates, and new Supreme Court guidance.
+- **Any time**: state notifications of the Labour Codes, DPDP Rules, revised consumer pecuniary limits, and court-fee or stamp amendments in Maharashtra.
+
+## 9. A one-page chambers AI policy
+
+Cover: which AI tools and plans are allowed, anonymisation before upload, the pre-filing checklist before anything leaves, the advocate reading the whole document, the engagement-letter disclosure line, and who updates the policy each quarter.
+
+## 10. Knowledge that compounds
 
 Keep, per chambers: verified judgment notes (citation, ratio in one line, the paragraphs relied on, date checked), a tested clause library, a register of AI errors caught (what it said, what was true, which check caught it), and plain-language client FAQs by matter type. Review the templates against amendments every quarter.
 

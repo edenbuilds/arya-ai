@@ -3,6 +3,20 @@
 Indian-law plugin for advocates (Claude Code plugin, Codex plugin, MCPB for Claude Desktop, local MCP server).
 Repo: https://github.com/edenbuilds/arya-ai (public). Local: `~/arya-ai` (moved from `~/.tmp/arya-ai` on 01-11-2026).
 
+## State at 1.2.0 (01-11-2026)
+
+- Intake first: `skills/arya-intake/` plus the MCP tool `intake_questions(case_type)`. The orchestrator, the drafting
+  orchestration script, CLAUDE.md, AGENTS.md and GEMINI.md all require asking Adv. Arya and waiting for her answers
+  before any work. Per-instrument question sets cover bail, ABA, APL, s.138, writ, replies, RERA/consumer/MACT, contracts,
+  memos, letters and deeds. For pipeline case types the skill's `format-from-user.md` is appended.
+- `INSTALL.md`: uv and pandoc prerequisites, then Claude Code plugin, Claude Desktop `.mcpb`, and Codex/Cursor/Gemini/MCP.
+- `ai-practice-safeguards` gained the template re-check calendar and a one-page chambers AI policy outline (from the course's
+  Bonus module, in my own words).
+- Not committed: `~/Downloads/LLM_Advocates_Complete_Study_Guide.md`. It is a full copy of the LLM Advocates course and
+  the repo is public. Its useful frameworks are already in `arya-intake` and `ai-practice-safeguards`.
+  `~/Downloads/indian-legal-ai-claude-SKILL.md` was folded into `arya-intake` (IRAC frame, code-selection rule,
+  escalation list) as intake questions, with no prompt text copied.
+
 ## State at 1.1.0 (01-11-2026)
 
 - Maharashtra courts drafting merged in from `~/vikram-shah-archive/companion/drafting/maharashtra-courts-drafting`:
@@ -23,8 +37,8 @@ Repo: https://github.com/edenbuilds/arya-ai (public). Local: `~/arya-ai` (moved 
 ## Verified
 
 - `claude plugin validate` passes (one warning: CLAUDE.md at the root is not loaded by Claude Code).
-- `npx @anthropic-ai/mcpb validate manifest.json` passes. `dist/arya-ai-1.1.0.mcpb` built (2.9 MB, 544 files).
-- MCP over stdio: 22 tools listed. `resolve_bench("Chandrapur")` returns `bombay-hc-nagpur`. `create_case_folder("anticipatory-bail")` works.
+- `npx @anthropic-ai/mcpb validate manifest.json` passes. `dist/arya-ai-1.2.0.mcpb` built (547 files) and attached to the GitHub release.
+- MCP over stdio: 23 tools listed. `intake_questions("anticipatory-bail")` returns the general and instrument questions. `resolve_bench("Chandrapur")` returns `bombay-hc-nagpur`. `create_case_folder("anticipatory-bail")` works.
   `get_agent_instructions()` returns the combined script.
 
 ## Not verified
@@ -37,6 +51,6 @@ Repo: https://github.com/edenbuilds/arya-ai (public). Local: `~/arya-ai` (moved 
 
 > In ~/arya-ai, install the plugin in Claude Code with `/plugin marketplace add edenbuilds/arya-ai` then
 > `/plugin install arya-ai@arya-ai`, restart, and ask "ABA before the Nagpur Bench in an FIR from Chandrapur under BNS 118".
-> Confirm it calls get_agent_instructions, resolve_bench and get_forum_config, and that the case folder lands in
+> Confirm it first asks the intake questions and waits, then calls get_agent_instructions, resolve_bench and get_forum_config, and that the case folder lands in
 > ~/Downloads/arya-ai-Drafts. `brew install pandoc` first so the DOCX step runs. Fix anything that breaks, bump the
-> patch version in the three manifests and pyproject, rebuild dist/*.mcpb, then commit and push.
+> patch version in plugin.json, marketplace.json, .codex-plugin/plugin.json, manifest.json and pyproject.toml, rebuild dist/*.mcpb, then commit and push.

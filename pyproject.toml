@@ -1,6 +1,6 @@
 [project]
 name = "arya-ai"
-version = "1.1.0"
+version = "1.2.0"
 description = "Universal Indian-law MCP server and prompt-pack plugin."
 requires-python = ">=3.10"
 license = { text = "MIT" }

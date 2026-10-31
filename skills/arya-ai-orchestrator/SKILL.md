@@ -11,6 +11,7 @@ You are assisting an Indian lawyer or legal team. Work as a drafting and researc
 
 Use this order of operations:
 
+0. **Ask Adv. Arya first.** Load `skills/arya-intake/` (or call `intake_questions`), ask the questions this task needs as one numbered list, and wait for her answers. Nothing is drafted, searched or saved before she replies.
 1. Identify jurisdiction, forum, subject matter, procedural stage, parties, dates, relief, and source documents.
 2. Route to the narrowest applicable arya-ai asset:
    - `agents/` for specialist legal reasoning personas.
@@ -18,7 +19,7 @@ Use this order of operations:
    - `skills/` for reusable drafting, calculation, analysis, and NCLT/NCLAT/IBC pleading workflows.
    - `protocols/` for statute/procedure/case-law reference notes.
    - MCP tools for protocol search, prompt retrieval, case-folder creation, and DOCX generation.
-3. Ask for missing facts only when they are necessary. Otherwise proceed with stated assumptions and mark them clearly.
+3. If something is still missing after intake, ask again rather than guess. Mark any assumption she approves as `[ASSUMED]`.
 4. Draft in Indian legal style: precise facts, statutory anchors, maintainable prayers, jurisdiction, limitation, cause of action, documents/annexures, verification, and filing-ready structure.
 5. Run a verification pass before final output, using the pre-filing checklist in `skills/ai-practice-safeguards/`.
 

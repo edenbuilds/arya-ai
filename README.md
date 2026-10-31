@@ -25,7 +25,7 @@ arya-ai helps with:
 |---|---:|---|
 | Specialist legal agents | 32 | `agents/` |
 | Command workflows | 32 | `commands/` |
-| Skills and drafting workflows | 67 | `skills/` |
+| Skills and drafting workflows | 68 | `skills/` |
 | Protocol reference files | 235 | `protocols/` |
 | Maharashtra court and tribunal case types | 36 | `skills/<case-type>-draft/` |
 | Company-law drafting case types | 10 | `skills/nclt-*`, `skills/ibc-*`, `skills/nclat-*` |
@@ -51,7 +51,7 @@ arya-ai helps with:
 All platforms should start with:
 
 ```text
-Read skills/arya-ai-orchestrator/SKILL.md first and follow it for routing, legal safety, drafting, and verification.
+Read skills/arya-ai-orchestrator/SKILL.md first and follow it for routing, legal safety, drafting, and verification. Ask the intake questions in skills/arya-intake/SKILL.md and wait for answers before any work.
 ```
 
 Core rules:
@@ -64,6 +64,8 @@ Core rules:
 - Always include a final verification checklist for filing-sensitive work.
 
 ## Install and Use
+
+Step-by-step install for Claude Desktop, Claude Code, Codex and Cursor: see [INSTALL.md](INSTALL.md).
 
 ### Codex / ChatGPT Codex
 
@@ -153,6 +155,7 @@ Then use the `arya-ai` MCP server tools.
 
 arya-ai exposes these local tools:
 
+- `intake_questions` (call first)
 - `list_arya_ai_capabilities`
 - `list_legal_domains`
 - `list_commands`

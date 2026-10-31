@@ -374,12 +374,12 @@ FULL_ORCHESTRATION_SCRIPT = """# arya-ai — DRAFTING · FULL ORCHESTRATION SCRI
 standalone python-docx, JavaScript, or shell scripts to generate output —
 invoke the tools listed at each step.**
 
-## BEFORE STEP 0 — ASK, THEN WAIT
+## BEFORE STEP 0 — ASK ADV. ARYA, THEN WAIT
 
-Ask the advocate two things and wait for the answers:
-1. Which instrument and forum (use their acronym; call `list_case_types()` for the acronym map).
-2. Whether they have a reference draft to follow. If they do, follow its structure, headings, cause
-   title, numbering and register, and take nothing factual from it about this matter.
+Call `intake_questions(case_type)` and put those questions to the advocate as one numbered list.
+Skip what she has already told you. STOP and wait for her answers; do not start STEP 0 until she replies.
+If she has a reference draft, follow its structure, headings, cause title, numbering and register,
+and take nothing factual from it about this matter.
 
 ## STEP 0 — CREATE THE CASE FOLDER
 
@@ -479,6 +479,20 @@ If any are missing, return to the matching STEP and produce it.
 JavaScript script, or any one-shot drafting program. The MCPB exposes every
 required tool. Use them.
 """
+
+@mcp.tool(annotations=ToolAnnotations(title="Get Intake Questions", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
+def intake_questions(case_type: str = "") -> str:
+    """Questions to ask the advocate before any work starts. Call this first, ask, then wait for answers.
+
+    With a case_type from list_case_types(), the instrument's own "facts the user
+    must supply" list is appended to the general intake.
+    """
+    text = (SKILLS_DIR / "arya-intake" / "SKILL.md").read_text(encoding="utf-8")
+    extra = SKILLS_DIR / f"{case_type}-draft" / "format-from-user.md"
+    if case_type and extra.is_file():
+        text += "\n\n---\n\n" + extra.read_text(encoding="utf-8")
+    return text
+
 
 @mcp.tool(annotations=ToolAnnotations(title="List Available Case Types", readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False))
 def list_case_types() -> dict:

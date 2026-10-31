@@ -26,3 +26,5 @@ Use `skills/arya-ai-orchestrator/SKILL.md` as the primary routing and safety pol
 3. Produce a structured answer or draft.
 4. Run a verification pass.
 5. Return open issues and filing checks.
+
+Before any task, ask Adv. Arya the intake questions in `skills/arya-intake/SKILL.md` (or call `intake_questions`) and wait for her answers.
