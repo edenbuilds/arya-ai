@@ -40,11 +40,14 @@ Repo: https://github.com/edenbuilds/arya-ai (public). Local: `~/arya-ai` (moved 
 - `npx @anthropic-ai/mcpb validate manifest.json` passes. `dist/arya-ai-1.2.0.mcpb` built (547 files) and attached to the GitHub release.
 - MCP over stdio: 23 tools listed. `intake_questions("anticipatory-bail")` returns the general and instrument questions. `resolve_bench("Chandrapur")` returns `bombay-hc-nagpur`. `create_case_folder("anticipatory-bail")` works.
   `get_agent_instructions()` returns the combined script.
+- DOCX export (01-11-2026, pandoc 3.13): the ABA long-form template rendered through `save_draft_as_docx` with
+  `reference.docx` applied. A4, Times New Roman 14, 1.5 line spacing, 4 cm left margin, matching Bombay HC house style.
+- `.mcp.json` uses `${CLAUDE_PLUGIN_ROOT:-.}` so the server also starts when the repo is opened as a project (it failed
+  with "Connection closed" before). Project-mode start still needs the one-time server approval in `claude`.
 
 ## Not verified
 
 - An install inside Claude Code (`/plugin marketplace add edenbuilds/arya-ai`): the headless CLI returned 401 in the agent sandbox.
-- DOCX export: pandoc is not installed on this Mac.
 - The Kolhapur circuit, DRT and MAT territorial lists, fees and pecuniary limits are from the pack's notes and carry VERIFY tags.
 
 ## Next prompt (paste-ready)
@@ -52,5 +55,5 @@ Repo: https://github.com/edenbuilds/arya-ai (public). Local: `~/arya-ai` (moved 
 > In ~/arya-ai, install the plugin in Claude Code with `/plugin marketplace add edenbuilds/arya-ai` then
 > `/plugin install arya-ai@arya-ai`, restart, and ask "ABA before the Nagpur Bench in an FIR from Chandrapur under BNS 118".
 > Confirm it first asks the intake questions and waits, then calls get_agent_instructions, resolve_bench and get_forum_config, and that the case folder lands in
-> ~/Downloads/arya-ai-Drafts. `brew install pandoc` first so the DOCX step runs. Fix anything that breaks, bump the
+> ~/Downloads/arya-ai-Drafts. Fix anything that breaks, bump the
 > patch version in plugin.json, marketplace.json, .codex-plugin/plugin.json, manifest.json and pyproject.toml, rebuild dist/*.mcpb, then commit and push.
